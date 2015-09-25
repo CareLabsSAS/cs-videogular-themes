@@ -1,7 +1,7 @@
-bower-videogular-themes-default
+cs-videogular-themes
 ===============================
 
-Default Videogular's theme for distribution on `bower`.
+ Videogular's theme for distribution on `bower` for Cheque Sante.
 
 ## Install theme
 

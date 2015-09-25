@@ -1,11 +1,15 @@
 {
-  "name": "videogular-themes-default",
-  "version": "1.2.8",
+  "name": "cs-videogular-themes",
+  "version": "1.2.9",
   "main": [
-    "./videogular.css",
-    "./fonts/*"
+    "dist/css/*",
+    "dist/fonts/*"
   ],
   "dependencies": {
     "videogular": "^1.2.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CareLabsSAS/cs-videogular-themes.git"
   }
 }

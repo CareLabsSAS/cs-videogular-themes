@@ -24,12 +24,36 @@ module.exports = function(grunt) {
 				pushTags: false, //default: true
 				npm: false
 			}
+		},
+		less: {
+		  dist: {
+		    files: {
+		      "dist/css/videogular.css": "less/videogular.less"
+		    }
+		  }
+		},
+		cssmin: {
+			options: {
+				sourceMap: true
+			},
+		  target: {
+		    files: [{
+		      expand: true,
+		      cwd: 'dist/css',
+		      src: ['*.css', '!*.min.css'],
+		      dest: 'dist/css',
+		      ext: '.min.css'
+		    }]
+		  }
 		}
+
 	});
 
 	grunt.loadNpmTasks('grunt-release');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-	grunt.registerTask('major', ['release:major']);
-	grunt.registerTask('minor', ['release:minor']);
-	grunt.registerTask('patch', ['release:patch']);
+	grunt.registerTask('major', ['less:dist', 'cssmin', 'release:major']);
+	grunt.registerTask('minor', ['less:dist', 'cssmin', 'release:minor']);
+	grunt.registerTask('patch', ['less:dist', 'cssmin', 'release:patch']);
 };
